@@ -3,6 +3,7 @@ import plotly.express as px
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+from io import StringIO
 
 def show_data_exploration():
     st.title("🔍 Data Exploration")
@@ -45,9 +46,9 @@ def show_data_exploration():
         
         # Show data info
         st.write("Dataset Information:")
-        buffer = []
+        buffer = StringIO()
         df.info(buf=buffer)
-        st.text("".join(buffer))
+        st.text(buffer.getvalue())
         
         # Show missing values
         st.write("Missing Values:")

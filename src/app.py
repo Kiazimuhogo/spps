@@ -5,6 +5,7 @@ from pages.dashboard import show_dashboard
 from pages.data_exploration import show_data_exploration
 from pages.prediction import show_prediction
 from utils.data_loader import load_data
+import os
 
 # Set page config
 st.set_page_config(
@@ -34,6 +35,20 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 def main():
+    # Display logo and title at the top, centered
+    logo_path = os.path.join(os.path.dirname(__file__), '../assets/logo.jpeg')
+    with open(logo_path, "rb") as img_file:
+        img_bytes = img_file.read()
+    st.markdown(
+        """
+        <div style='display: flex; flex-direction: column; align-items: center; margin-bottom: 2rem;'>
+            <img src='data:image/jpeg;base64,""" + __import__('base64').b64encode(img_bytes).decode() + """' width='120' style='border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); margin-bottom: 0.5rem;'>
+            <h1 style='margin: 0; font-size: 2.2rem; color: #2c3e50;'>Student Success Predictor</h1>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
     # Sidebar
     with st.sidebar:
         st.title("📚 Navigation")

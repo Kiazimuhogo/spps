@@ -4,7 +4,7 @@ import plotly.graph_objects as go
 import pandas as pd
 
 def show_dashboard():
-    st.title("📊 Student Performance Dashboard")
+    st.subheader("📊 Student Performance Dashboard")
     
     # Get data from session state
     df = st.session_state.get('data')
