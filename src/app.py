@@ -36,7 +36,7 @@ st.markdown("""
 
 def main():
     # Display logo and title at the top, centered
-    logo_path = os.path.join(os.path.dirname(__file__), '../assets/logo.jpeg')
+    logo_path = os.path.join(os.path.dirname(__file__), '../static/images/logo.jpeg')
     with open(logo_path, "rb") as img_file:
         img_bytes = img_file.read()
     st.markdown(
